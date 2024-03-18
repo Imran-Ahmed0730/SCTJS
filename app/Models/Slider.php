@@ -21,7 +21,6 @@ class Slider extends Model
         }
         self::$slider->title = $request->title;
         self::$slider->status = $request->status;
-        self::$slider->image = $request->status;
 
         if ($request->file('image')) {
             if (self::$slider->image) {
@@ -39,6 +38,7 @@ class Slider extends Model
 
     private static function saveImageUrl($request){
         $image = $request->file('image');
+//        dd($image);
         $imageName = $request->title. '.' . $image->extension();
         $directory = 'uploads/sliders/';
         $imageUrl = $directory.$imageName;
@@ -47,7 +47,7 @@ class Slider extends Model
         return $imageUrl;
     }
 
-    public function remove($id)
+    public static function remove($id)
     {
         self::$slider = Slider::find($id);
         if (self::$slider->image){

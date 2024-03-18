@@ -14,10 +14,10 @@ class Testimonial extends Model
     public static function addOrUpdate($request)
     {
         if (Testimonial::find($request->id)) {
-            self::$testimonial = Student::find($request->id);
+            self::$testimonial = Testimonial::find($request->id);
         }
         else {
-            self::$testimonial = new Student();
+            self::$testimonial = new Testimonial();
         }
 
         self::$testimonial->name        = $request->name;
@@ -41,12 +41,12 @@ class Testimonial extends Model
     private static function saveImageUrl($request){
 
         $image = $request->file('image');
-        $imageName = $request->name. '.png';
-        $directory = 'uploads/testimonials/';
+//        dd($image);
+        $imageName = $request->title. '.' . $image->extension();
+        $directory = 'uploads/testimonial/';
         $imageUrl = $directory.$imageName;
-        $image = Image::make($image->getRealPath())->resize(200, 200)->encode('jpg');
-//        $image->move($directory, $imageName);
-        $image->save(public_path($imageUrl));
+        $image->move($directory, $imageName);
+
         return $imageUrl;
     }
 

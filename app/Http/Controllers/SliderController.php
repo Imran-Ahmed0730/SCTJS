@@ -19,7 +19,7 @@ class SliderController extends Controller
         $this->validation($request);
         $this->slider = Slider::addOrUpdate($request);
 
-        return redirect()->route('admin.gallery.list')->with('message', 'Slider Has Been Added in the Gallery Successfully!!');
+        return redirect()->route('admin.slider.list')->with('message', 'Slider Has Been Added in the Gallery Successfully!!');
     }
 
     public function list()
@@ -37,7 +37,9 @@ class SliderController extends Controller
 
     public function update(Request $request)
     {
-        $this->validation($request);
+        $request->validate([
+            'title'=>['required'],
+        ]);
         Slider::addOrUpdate($request);
         return redirect()->route('admin.slider.list')->with('message', 'Slider Has Been Updated in the Gallery Successfully!!');
     }
@@ -45,7 +47,7 @@ class SliderController extends Controller
     public function remove(Request $request)
     {
         Slider::remove($request->id);
-        return redirect()->route('admin.gallery.list')->with('message', 'Slider Has Been Removed from the Gallery Successfully!!');
+        return redirect()->route('admin.slider.list')->with('message', 'Slider Has Been Removed from the Gallery Successfully!!');
     }
 
     public function validation($request)

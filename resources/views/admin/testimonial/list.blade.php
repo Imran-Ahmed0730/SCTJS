@@ -14,25 +14,39 @@
                     <table class="table table-striped">
                         <tr>
                             <th>#</th>
-                            <th>Title</th>
-                            <th>Description</th>
+                            <th>Name</th>
+                            <th>Profession</th>
                             <th>Images</th>
+                            <th>Description</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                         @php $i=1; @endphp
                         @foreach($items as $item)
                             <tr>
                                 <td>{{$i++}}</td>
-                                <td>{{$item->title}}</td>
+                                <td>{{$item->name}}</td>
+                                <td>
+                                    {{$item->profession}}
+                                </td>
+                                <td>
+                                    @if($item->image != null)
+                                        <img src="{{asset($item->image)}}" class="rounded-circle" height="50px" width="50px" alt="">
+                                    @else
+                                        <img src="{{asset('admin-assets')}}/images/default.jpg" class="rounded-circle" height="50px" width="50px" alt="">
+                                    @endif
+
+                                </td>
                                 <td>{{$item->description}}</td>
                                 <td>
-                                    @foreach($item->galleryImage as $image)
-                                        <img src="{{asset($image->image_path)}}" alt="" class="mx-2" height="100px" width="100px">
-                                    @endforeach
+                                    <div class="mt-2">
+                                        <span class="{{$item->status == 1 ? 'bg-success':'bg-danger'}} p-2 text-white" style="border-radius:5px">
+                                    {{$item->status == 1 ? 'Active':'Inactive'}}</span>
+                                    </div>
                                 </td>
                                 <td class="btn-group">
-                                    <a href="{{route('admin.gallery.edit', ['id'=>$item->id])}}" title="Edit" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
-                                    <form action="{{route('admin.gallery.remove')}}" onclick="return confirm('Please Confirm Before Deleting it!!')" method="post">
+                                    <a href="{{route('admin.testimonial.edit', ['id'=>$item->id])}}" title="Edit" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+                                    <form action="{{route('admin.testimonial.remove')}}" onclick="return confirm('Please Confirm Before Deleting it!!')" method="post">
                                         @csrf
                                         <input type="hidden" name="id" value="{{$item->id}}">
                                         <button type="submit" title="Remove" class="btn btn-danger" style="margin-left: 5px"><i class="fa fa-trash"></i></button>

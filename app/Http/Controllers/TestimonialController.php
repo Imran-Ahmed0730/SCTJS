@@ -15,7 +15,7 @@ class TestimonialController extends Controller
 
     public function submit(Request $request)
     {
-
+//        return $request;
         $this->validation($request);
         $request->validate([
             'name' => 'unique:testimonials'
@@ -23,7 +23,7 @@ class TestimonialController extends Controller
 
         $this->testimonial = Testimonial::addOrUpdate($request);
 
-        return redirect()->route('admin.gallery.list')->with('message', 'Testimonial Has Been Added in the Gallery Successfully!!');
+        return redirect()->route('admin.testimonial.list')->with('message', 'Testimonial Has Been Added in the Gallery Successfully!!');
     }
 
     public function list()
@@ -49,7 +49,7 @@ class TestimonialController extends Controller
     public function remove(Request $request)
     {
         Testimonial::remove($request->id);
-        return redirect()->route('admin.gallery.list')->with('message', 'Testimonial Has Been Removed from the Gallery Successfully!!');
+        return redirect()->route('admin.testimonial.list')->with('message', 'Testimonial Has Been Removed from the Gallery Successfully!!');
     }
 
     public function validation($request)

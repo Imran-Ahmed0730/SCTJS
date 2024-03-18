@@ -38,13 +38,13 @@
                     <div class="form-group col-md-4">
                         <label for="" class="form-control-label">Slider Status</label>
                         <div class="form-check">
-                            <input class="form-check-input" value="1" type="radio" name="status" id="flexRadioDefault1" @isset($item){{$item->status == 1 ? 'checked':''}}@endisset>
+                            <input class="form-check-input" value="1" type="radio" name="status" id="flexRadioDefault1" checked>
                             <label class="form-check-label" for="flexRadioDefault1">
                                 Active
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" value="0" type="radio" name="status" id="flexRadioDefault2" checked>
+                            <input class="form-check-input" value="0" type="radio" name="status" id="flexRadioDefault2" @isset($item){{$item->status == 0 ? 'checked':''}}@endisset>
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Inactive
                             </label>
