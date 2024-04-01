@@ -330,7 +330,7 @@ class BranchStudentController extends Controller
 //        return view('admin.student-doc.id-card', $data);
             $pdf = PDF::loadView('admin.student-doc.id-card', $data);
 
-            return $pdf->download('ID Card-'.$this->branchStudent->student_roll.'.pdf');
+            return $pdf->stream('ID Card-'.$this->branchStudent->student_roll.'.pdf');
 
 //        return view('admin.student-doc.admit-card', $data);
     }

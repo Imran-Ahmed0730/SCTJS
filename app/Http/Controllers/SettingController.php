@@ -25,4 +25,6 @@ class SettingController extends Controller
         Setting::updateSetting($request);
         return redirect()->route('admin.setting.list')->with('message', 'Setting Has Been Updated Successfully!!');
     }
+
+
 }

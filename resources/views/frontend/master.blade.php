@@ -11,7 +11,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="{{asset('frontend-assets')}}/img/logo/Logo-white.png" rel="icon">
+    <link href="{{asset(getSettings('site_logo'))}}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">

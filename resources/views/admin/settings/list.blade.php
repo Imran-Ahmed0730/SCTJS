@@ -31,6 +31,8 @@
                                         <span class="p-2 bg-danger" style="border-radius: 8px">
                                     Inactive
                                 </span>
+                                    @elseif($item->key == 'site_logo' || $item->key == 'site_logo_dark' || $item->key == 'site_icon')
+                                        <img src="{{asset($item->value)}}" width="100px" height="100px" alt="">
                                     @else
                                         {{$item->value}}
                                     @endif

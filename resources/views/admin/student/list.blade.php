@@ -85,7 +85,7 @@
                                 @if(Auth::user()->role == 2)
                                     <th>Action</th>
                                 @endif
-                                <th>Download</th>
+{{--                                <th>Download</th>--}}
                             </tr>
                             </thead>
                             @php $i=1; @endphp
@@ -146,16 +146,16 @@
                                     @endif
 
                                     <td class="btn-group">
-                                        @if(Auth::user()->role ==2 )<a href="{{route('student.registration.print', ['id'=>$item->id])}}" class="btn btn-info" style="border-radius: 4px;" title="Download Registration Card"><i class="fa fa-id-card" aria-hidden="true"></i></a>@endif
-                                        @if(Auth::user()->role ==2 )<a href="{{route('student.id.print', ['id'=>$item->id])}}" class="btn btn-primary mx-2" style="border-radius: 4px;" title="Download ID Card"><i class="fa fa-id-badge" aria-hidden="true"></i></a>@endif
-                                        @if(Auth::user()->role ==2  && getSettings('admit_card_printing_status') == 1)<a href="{{route('student.admit.print', ['id'=>$item->id])}}" class="btn btn-warning" style="border-radius: 4px;" title="Download Admit Card"><i class="fa fa-ticket" aria-hidden="true"></i></a>@endif
+{{--                                        @if(Auth::user()->role ==2 )<a href="{{route('student.registration.print', ['id'=>$item->id])}}" class="btn btn-info" style="border-radius: 4px;" title="Download Registration Card"><i class="fa fa-id-card" aria-hidden="true"></i></a>@endif--}}
+{{--                                       // @if(Auth::user()->role ==2 )<a href="{{route('student.id.print', ['id'=>$item->id])}}" class="btn btn-primary mx-2" style="border-radius: 4px;" title="Download ID Card"><i class="fa fa-id-badge" aria-hidden="true"></i></a>@endif--}}
+{{--                                        //@if(Auth::user()->role ==2  && getSettings('admit_card_printing_status') == 1)<a href="{{route('student.admit.print', ['id'=>$item->id])}}" class="btn btn-warning" style="border-radius: 4px;" title="Download Admit Card"><i class="fa fa-ticket" aria-hidden="true"></i></a>@endif--}}
                                         @if(Auth::user()->role ==1 )
                                                 <form action="{{route('student.remove')}}" onclick="return confirm('Please Confirm Before Deleting it!!')" method="post">
                                                     @csrf
                                                     <input type="hidden" name="id" id="'student_id'.{{$i}}" value="{{$item->id}}">
                                                     <button type="submit" class="btn btn-danger" title="Remove" style="margin-top: 5px"><i class="fa fa-trash"></i></button>
                                                 </form>
-                                            <a href="" onclick="test({{$item->id}})" class="btn btn-success mx-2" style="border-radius: 4px; margin-top: 5px" title="Download Certificate"><i class="fa fa-file"></i></a>
+{{--                                            <a href="" onclick="test({{$item->id}})" class="btn btn-success mx-2" style="border-radius: 4px; margin-top: 5px" title="Download Certificate"><i class="fa fa-file"></i></a>--}}
                                         @endif
                                     </td>
 

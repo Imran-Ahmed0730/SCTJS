@@ -55,7 +55,8 @@
                     </tr>
                     <tr height="30px">
                         <td colspan="3" style="padding-top: 20px">
-                            <img src="data:image/jpg;base64,{{base64_encode(file_get_contents('admin-assets/images/result-header.jpg'))}} " style="transform: scale(0.6)"   width="200px" height="50px"><br>
+                            <h3></h3>
+{{--                            <img src="data:image/jpg;base64,{{base64_encode(file_get_contents('admin-assets/images/result-header.jpg'))}} " style="transform: scale(0.6)"   width="200px" height="50px"><br>--}}
                             {{--                    <img src="{{asset('/')}}/admin-assets/images/result-header.jpg" width="400px" height="50px" alt="">--}}
 {{--                            <small style="color: blue; text-align: center; margin: 0">Expert Youth ICT Developement</small>--}}
 {{--                            <br>--}}

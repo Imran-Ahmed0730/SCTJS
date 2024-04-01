@@ -8,7 +8,7 @@
             <h2><strong> @isset($item)Edit @else Add @endisset Course Form</strong></h2>
         </div>
         <div class="card-body card-block">
-            <form action="@isset($item){{route('admin.course.update')}}@else{{route('admin.course.submit')}}@endisset" method="post">
+            <form action="@isset($item){{route('admin.course.update')}}@else{{route('admin.course.submit')}}@endisset" method="post" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="id" value="@isset($item){{$item->id}}@endisset">
                 <div class="row mb-3">
@@ -26,7 +26,20 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <div class="form-group col-md-6"><label for="company" class=" form-control-label">Course Code
+                    <div class="form-group col-md-4"><label for="company" class=" form-control-label">Course Image
+                            <span class="text-danger">*</span></label>
+                        <input type="file" name="image" id="company" class="form-control @error('image') is-invalid @enderror"
+                               @isset($item) @else required @endisset>
+                        @isset($item)
+                            @if($item->image != null)
+                                <img src="{{asset($item->image)}}" height="100px" width="100px" alt="">
+                            @endif
+                        @endisset
+                        @error('image')
+                        <div class="invalid-feedback" role="alert">{{$message}}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group col-md-4"><label for="company" class=" form-control-label">Course Code
                             <span class="text-danger">*</span></label>
                         <input type="text" name="course_code" id="company" class="form-control @error('course_code') is-invalid @enderror"
                                value="@isset($item){{$item->course_code}}@else{{old('course_code')}}@endisset" required>
@@ -34,7 +47,7 @@
                         <div class="invalid-feedback" role="alert">{{$message}}</div>
                         @enderror
                     </div>
-                    <div class="form-group col-md-6"><label for="" class="form-control-label">Course Duration<span
+                    <div class="form-group col-md-4"><label for="" class="form-control-label">Course Duration<span
                                 class="text-danger">*</span></label>
                             <select name="course_duration" id="" class="form-control" required>
                                 <option value="">Select Duration</option>

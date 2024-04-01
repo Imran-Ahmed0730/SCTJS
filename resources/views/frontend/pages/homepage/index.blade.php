@@ -107,22 +107,16 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
                     <div class="position-relative h-100">
-                        <img class="img-fluid position-absolute w-100 h-100" src="{{asset('frontend-assets')}}/img/About-us.jpg" alt=""
+                        <img class="img-fluid position-absolute w-100 h-100" src="{{asset('frontend-assets')}}/img/about.jpg" alt=""
                              style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                     <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
-                    <h1 class="mb-4">দক্ষ যুব আইসিটি উন্নয়ন</h1>
-                    <p class="mb-4">দেশ থেকে বেকারত্ব দূর করা সকলের দায়িত্ব শুধু সরকারের নয়। এরই লক্ষ্যে বাস্তবসম্মত
-                        এবংযুগোপযোগী শিক্ষার আলোই আলোকিত করে দেশের উদীয়মান জনশক্তির জন্য স্বপ্নীল ভবিষ্যৎ গড়ে তোলা
-                        আমাদের অঙ্গীকার। কিন্তু আমাদের দেশে তৃর্ণমূলপর্যায়ে এখনও প্রত্যাশিতভাবে কম্পিউটার শিক্ষা চালু
-                        হয়নি। আমরা প্রতিটি জেলা ও থানা পর্যায়ে একটি করে আধুনিক কম্পিউটার ট্রেনিং সেন্টার চালু করার
-                        উদ্যোগগ্রহণ করেছি।
+                    <h1 class="mb-4">{{getSettings('site_name')}}</h1>
+                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A doloremque nesciunt obcaecati veniam voluptas. Ab aperiam deserunt doloribus eveniet exercitationem expedita iure necessitatibus saepe soluta, vel. Animi minus quos veritatis?
                     </p>
-                    <p class="mb-4">আইসিটিতে তরুণ উদ্যোক্তা সৃষ্টি এবং তাদের মাধ্যমে দক্ষ জনশক্তি তৈরি এবং
-                        ডিজিটাল বাংলাদেশ গড়ার লক্ষ্যে বিভিন্ন বিষয়ে প্রশিক্ষণ দিয়ে বেকারমুক্ত বাংলাদেশ গড়ে তুলবো
-                        ইনশাল্লাহ।
+                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet consequuntur dolores nemo non optio, perferendis.
                     </p>
                     <a class="btn btn-primary py-3 px-5 mt-2" href="#">Read More</a>
                 </div>
@@ -197,90 +191,31 @@
                 <h1 class="mb-5">Expert Instructors</h1>
             </div>
             <div class="row g-4">
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item bg-light">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="{{asset('frontend-assets')}}/img/team-1.jpg" alt="">
-                        </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                                <a class="btn btn-sm-square btn-primary mx-1" href="#"><i
-                                        class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href="#"><i
-                                        class="fab fa-twitter"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href="#"><i
-                                        class="fab fa-instagram"></i></a>
+                @php $time= 0.1 @endphp
+                @foreach($teachers as $teacher)
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="{{$time}}s">
+                        <div class="team-item bg-light">
+                            <div class="overflow-hidden">
+                                <img class="img-fluid" src="{{asset($teacher->image)}}" alt="">
+                            </div>
+                            <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
+                                <div class="bg-light d-flex justify-content-center pt-2 px-1">
+                                    <a class="btn btn-sm-square btn-primary mx-1" href="#"><i
+                                            class="fab fa-facebook-f"></i></a>
+                                    <a class="btn btn-sm-square btn-primary mx-1" href="#"><i
+                                            class="fab fa-twitter"></i></a>
+                                    <a class="btn btn-sm-square btn-primary mx-1" href="#"><i
+                                            class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                            <div class="text-center p-4">
+                                <h5 class="mb-0">{{$teacher->name}}</h5>
+                                <small>{{$teacher->designation}}</small>
                             </div>
                         </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0">Instructor Name</h5>
-                            <small>Designation</small>
-                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-item bg-light">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="{{asset('frontend-assets')}}/img/team-2.jpg" alt="">
-                        </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                                <a class="btn btn-sm-square btn-primary mx-1" href="#"><i
-                                        class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href="#"><i
-                                        class="fab fa-twitter"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href="#"><i
-                                        class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0">Instructor Name</h5>
-                            <small>Designation</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="team-item bg-light">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="{{asset('frontend-assets')}}/img/team-3.jpg" alt="">
-                        </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                                <a class="btn btn-sm-square btn-primary mx-1" href="#"><i
-                                        class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href="#"><i
-                                        class="fab fa-twitter"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href="#"><i
-                                        class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0">Instructor Name</h5>
-                            <small>Designation</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="team-item bg-light">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="{{asset('frontend-assets')}}/img/team-4.jpg" alt="">
-                        </div>
-                        <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
-                            <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                                <a class="btn btn-sm-square btn-primary mx-1" href="#"><i
-                                        class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href="#"><i
-                                        class="fab fa-twitter"></i></a>
-                                <a class="btn btn-sm-square btn-primary mx-1" href="#"><i
-                                        class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div class="text-center p-4">
-                            <h5 class="mb-0">Instructor Name</h5>
-                            <small>Designation</small>
-                        </div>
-                    </div>
-                </div>
+                    @php $time+= 0.2 @endphp
+                @endforeach
             </div>
         </div>
     </div>
@@ -340,31 +275,19 @@
                         </div>
                         <div class="text-light">
                             <p>
-                                বাংলাদেশে তথ্য প্রযুক্তির নতুন দিগন্ত দক্ষ যুব আইসিটি উন্নয়ন। বাংলাদেশ তথ্য প্রযুক্তি
-                                সেক্টরে ১ কোটি মানুষের কর্মসংস্থান সৃষ্টির লক্ষে দক্ষ যুব আইসিটি উন্নয়ন ২০২০ সাল থেকে
-                                The Companies ACT XVIII OF 1994 এর আওতায় সেবামূলক কাজের জন্য সরকারি অনুমোদন নিয়ে দেশের
-                                বহু বেকার তরুণ তরুণীদের তথ্যপ্রযুক্তি ভিত্তিক শিক্ষা প্রদানের মাধ্যমে আই সি টি শিক্ষায়
-                                শিক্ষত করে দেশের বহু বেকার যুবকের আত্ম-কর্মসংস্থানের পথ দেখিয়ে যাচ্ছে। দেশ থেকে বেকারত্ব
-                                দূর করা শুধু সরকারের দায়িত্ব নয়। এই লক্ষে আমাদের দক্ষ যুব আইসিটি উন্নয়ন বাস্তবসম্মত
-                                শিক্ষার আলোয় আলোকিত করে দেশের জনশক্তির জন্য স্বপ্নীল ভবিষ্যৎ গড়ে তোলাও বেকার মুক্ত করা
-                                আমাদের অঙ্গীকার। কিন্তু আমাদের দেশে তৃণমূল পর্যায়ে এখনোও প্রত্যাশিত ভাবে ঘরে ঘরে
-                                কম্পিউটার শিক্ষা চালু হয়নি। আমরা প্রতিটি জেলা ও থানা এবং ইউনিয়ন পর্যায়ে একটি করে আধুনিক
-                                কম্পিউটার ট্রেনিং সেন্টর চালু করার উদ্যোগ গ্রহণ করেছি। আইসিটিতে তরুণ উদ্যোক্তা সৃষ্টি
-                                করে তাদের মাধ্যমে দক্ষ জনশক্তি এবং তথ্য প্রযুক্তির মাধ্যমে বাংলাদেশকে বিশ্বের সাথে তাল
-                                মিলিয়ে এগিয়ে নিয়ে যাব। আইসিটির বিষয়সমূহ ছাড়াও আমরা আরও কর্মসংস্থান সৃষ্টির লক্ষে দক্ষ
-                                যুব আইসিটি উন্নয়ন এ ড্রেস মেকিং এন্ড টেইলারিং, ফুড প্রসেসিং এন্ড প্রিজারভেশন,
-                                সার্টিফিকেট ইন বিউটিফিকেশন, বক্স মেকিং এন্ড প্যাকেজিং কোর্স চালু করাসহ বাংলাদেশকে
-                                বেকারমুক্ত করার জন্য কাজ করে যাচ্ছি।
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, animi at beatae cum dolor ducimus ea, fugiat impedit ipsa ipsum molestias nisi nobis odit, omnis perspiciatis veniam vitae. Accusantium amet assumenda blanditiis doloribus esse exercitationem fugit impedit ipsa ipsum necessitatibus nostrum omnis perferendis praesentium quia sunt, tempora tempore veniam voluptate.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid at consequuntur cumque et facere impedit incidunt optio placeat sequi suscipit. Ad fuga harum illum nemo, neque sit tenetur vitae voluptatem voluptates? Beatae consequatur dignissimos dolorem, eligendi ipsum laborum maiores molestias natus nihil odio, praesentium sed similique. Architecto distinctio quidem vitae?
                             </p>
                         </div>
                         <div class="mt-4">
-                            <h3 class="text-light">চেয়ারম্যান</h3>
-                            <h6 class="text-light">দক্ষ যুব আইসিটি উন্নয়ন</h6>
+                            <h3 class="text-light d-none">চেয়ারম্যান</h3>
+                            <h3 class="text-light">Chairman</h3>
+                            <h6 class="text-light">Saikat Computer and Training Jubo Songhoton</h6>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6  wow slideInRight" data-wow-delay="100ms" data-wow-duration="2500ms">
-                    <img class="feature-two-img" src="{{asset('frontend-assets')}}/img/Chairman.jpg" alt="">
+                    <img class="feature-two-img" src="{{asset('frontend-assets')}}/img/team-1.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -379,46 +302,20 @@
                 <h1 class="mb-5">Our Students Say!</h1>
             </div>
             <div class="owl-carousel testimonial-carousel position-relative">
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="{{asset('frontend-assets')}}/img/testimonial-1.jpg"
-                         style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                        <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et
-                            eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="{{asset('frontend-assets')}}/img/testimonial-2.jpg"
-                         style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                        <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et
-                            eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="{{asset('frontend-assets')}}/img/testimonial-3.jpg"
-                         style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                        <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et
-                            eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="{{asset('frontend-assets')}}/img/testimonial-4.jpg"
-                         style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Client Name</h5>
-                    <p>Profession</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                        <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et
-                            eos. Clita erat ipsum et lorem et sit.</p>
-                    </div>
-                </div>
+                @if(count($testimonials) > 0)
+                    @foreach($testimonials as $testimonial)
+                        <div class="testimonial-item text-center">
+                            <img class="border rounded-circle p-2 mx-auto mb-3" src="{{asset($testimonial->image)}}"
+                                 style="width: 80px; height: 80px;">
+                            <h5 class="mb-0">{{$testimonial->name}}</h5>
+                            <p>{{$testimonial->profession}}</p>
+                            <div class="testimonial-text bg-light text-center p-4">
+                                <p class="mb-0">{{$testimonial->description}}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
+
             </div>
         </div>
     </div>

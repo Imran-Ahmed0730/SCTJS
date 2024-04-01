@@ -11,7 +11,7 @@
                     <h1 class="display-3 text-white animated slideInDown">Apply For Branch</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a class="text-white" href="{{route('home')}}">Home</a></li>
                             <li class="breadcrumb-item text-light">/</li>
                             <li class="breadcrumb-item text-light active" aria-current="page">Branch Registration</li>
                         </ol>
@@ -33,16 +33,14 @@
             <div class="row d-flex flex-column-reverse flex-lg-row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <h3>Get In Touch</h3>
-                    <p class="contact-text mb-4 mt-4">The contact form is currently inactive. Get a functional and working contact form
-                        with Ajax & PHP in a few minutes. Just copy and paste the files, add a little text and you're
-                        done.
+                    <p class="contact-text mb-4 mt-4">
                     <div class="d-flex align-items-center mb-3">
                         <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary"
                              style="width: 50px; height: 50px;">
                             <i class="fa fa-map-marker-alt text-white"></i>
                         </div>
                         <div class="ms-3">
-                            <p class="mb-0">মনসুর ম্যানশন, পুরাতন কৃষি ব্যাংক এর ৩য় তলা, কেশব মোড়, মাগুরা সদর ,মাগুরা।</p>
+                            <p class="mb-0">{{getSettings('Address')}}</p>
                         </div>
                     </div>
                     <div class="d-flex align-items-center mb-3">
@@ -51,8 +49,11 @@
                             <i class="fa fa-phone-alt text-white"></i>
                         </div>
                         <div class="ms-3">
-                            <p class="mb-0">+8801308-860635</p>
-                            <p class="mb-0">+8801933-840820</p>
+                            <p class="mb-0">{{getSettings('Phone1')}}</p>
+                            @if(getSettings('Phone2') != null)
+                                <p class="mb-0">{{getSettings('Phone2')}}</p>
+                            @endif
+
                         </div>
                     </div>
                     <div class="d-flex align-items-center">
@@ -61,7 +62,7 @@
                             <i class="fa fa-envelope-open text-white"></i>
                         </div>
                         <div class="ms-3">
-                            <p class="mb-0">info@bdyouthict.com</p>
+                            <p class="mb-0">{{getSettings('email')}}</p>
                         </div>
                     </div>
                 </div>

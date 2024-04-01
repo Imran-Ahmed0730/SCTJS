@@ -25,7 +25,7 @@ use App\Http\Controllers\UserMessageController;
 use App\Http\Controllers\ExamAttendanceController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\TestimonialController;
-
+use App\Http\Controllers\TeacherController;
 //frontend section
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -240,6 +240,17 @@ Route::prefix('admin/')->name('admin.')->middleware('admin')->group(function () 
         Route::post('update', [SessionController::class, 'update'])->name('update');
         Route::post('remove', [SessionController::class, 'remove'])->name('remove');
 
+    });
+
+//    //teacher module
+    Route::prefix('teacher/')->name('teacher.')->group(function () {
+        Route::get('add', [TeacherController::class, 'add'])->name('add');
+        Route::post('submit', [TeacherController::class, 'submit'])->name('submit');
+        Route::get('list', [TeacherController::class, 'list'])->name('list');
+        Route::get('edit/{id}', [TeacherController::class, 'edit'])->name('edit');
+        Route::post('update', [TeacherController::class, 'update'])->name('update');
+        Route::post('remove', [TeacherController::class, 'remove'])->name('remove');
+//        Route::get('get-batch-by-course/{id}', [TeacherController::class, 'getBatchByCourseId'])->name('get-batch-by-course');
     });
 
     Route::prefix('student/')->name('student.')->group(function () {

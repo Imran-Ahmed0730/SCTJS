@@ -5,7 +5,7 @@
             <div class="col-lg-3 col-md-6">
                 <a href="{{route('home')}}"
                    class="navbar-brand d-flex justify-content-center justify-content-lg-start align-items-center px-4">
-                    <img style="width: 200px;" src="{{asset('frontend-assets')}}/img/logo/Logo-white.png" alt="logo">
+                    <img style="width: 200px;" src="{{asset(getSettings('site_logo'))}}" alt="logo">
                 </a>
             </div>
 
@@ -23,7 +23,9 @@
                 <h4 class="text-white mb-3">Contact</h4>
                 <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{getSettings('Address')}}</p>
                 <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{getSettings('Phone1')}}</p>
-                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{getSettings('Phone2')}}</p>
+                @if(getSettings('Phone2') != null)
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{getSettings('Phone2')}}</p>
+                @endif
                 <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{getSettings('email')}}</p>
                 <div class="d-flex pt-2">
                     <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -34,7 +36,7 @@
             </div>
 
             <div class="col-lg-3 col-md-6">
-                <div class="d-flex justify-content-center justify-content-lg-start align-items-center">
+                <div class="d-flex justify-content-center justify-content-lg-start align-items-center d-none">
                     <img style="width: 260px;" src="{{asset('frontend-assets')}}/img/logo/Sign-Name.png" alt="logo">
                 </div>
                 <div class="d-flex justify-content-center justify-content-lg-start align-items-center mt-4">

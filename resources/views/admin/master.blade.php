@@ -12,8 +12,9 @@
     </title>
 {{--    <meta name="description" content="Ela Admin - HTML5 Admin Template">--}}
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="apple-touch-icon" href="{{asset('admin-assets')}}/images/favicon.png">
-    <link rel="shortcut icon" href="{{asset('admin-assets')}}/images/favicon.png">
+    @php $logo = getSettings('site_logo') @endphp
+    <link rel="apple-touch-icon" href="{{asset($logo)}}">
+    <link rel="shortcut icon" href="{{asset($logo)}}">
     @include('admin.include.style')
 </head>
 

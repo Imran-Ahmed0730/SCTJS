@@ -66,7 +66,7 @@
 
                                     <div class="form-group col-sm-1 text-center">
                                         <label for="" class="form-control-label text-white">--</label>
-                                        <div class="">
+                                        <div class="d-none">
                                             @if(Auth::user()->role == 1)
                                                 <button type="submit" class="btn btn-primary">
                                                     <a href="{{route('student.result-sheet.print')}}@isset($_GET['session_id'])?session_id={{ $_GET['session_id'] }}@if(Auth::user()->role == 1)&branch_id={{ $_GET['branch_id'] }}@endif&year={{ $_GET['year'] }}&course_id={{ $_GET['course_id'] }}@endisset"
@@ -181,9 +181,9 @@
                                                 @endif
                                             @endif
                                         @endif
-                                        @if(getSettings('marksheet_printing_status') == 1)
-                                            <a href="{{route('student.result.print', ['id'=>$item->id])}}" class="btn btn-warning mx-2" title="Print Result"><i class="fa fa-clipboard"></i></a>
-                                        @endif
+{{--                                        @if(getSettings('marksheet_printing_status') == 1)--}}
+{{--                                            <a href="{{route('student.result.print', ['id'=>$item->id])}}" class="btn btn-warning mx-2" title="Print Result"><i class="fa fa-clipboard"></i></a>--}}
+{{--                                        @endif--}}
                                     </td>
                             </form>
                         @endforeach

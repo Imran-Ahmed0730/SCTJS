@@ -19,6 +19,7 @@ class CourseController extends Controller
     {
 //        return $request;
         $this->validation($request);
+        $request->validate(['image' => ['required']]);
         $this->course= Course::addOrUpdate($request);
         if($request->modules != null){
             CourseModule::add($request, $this->course->id);

@@ -13,7 +13,7 @@
                             <li><a href="{{route('student.add')}}">Add Student</a></li>
                             <li><a href="{{route('student.list')}}">View Students</a></li>
                             <li><a href="{{route('student.result')}}">Result Input</a></li>
-                            <li><a href="{{route('student.registration.card')}}">Print Registration</a></li>
+{{--                            <li><a href="{{route('student.registration.card')}}">Print Registration</a></li>--}}
 {{--                            <li><a href="{{route('student.id.card')}}">Print ID Card</a></li>--}}
                         </ul>
                     </li>
@@ -74,6 +74,13 @@
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user"></i>Teacher Management</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><a href="{{route('admin.teacher.add')}}">Add Teacher</a></li>
+                            <li><a href="{{route('admin.teacher.list')}}">View Teacher</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-hourglass-half"></i>Session Management</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><a href="{{route('admin.session.add')}}">Add Session</a></li>
@@ -91,7 +98,7 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-users"></i>Student Management</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><a href="{{route('student.list')}}">Print Certificate</a></li>
+{{--                            <li><a href="{{route('student.list')}}">Print Certificate</a></li>--}}
                             <li><a href="{{route('student.result')}}">Result Input</a></li>
                             <li><a href="{{route('exam.attendance.list')}}">View Exam Attendance</a></li>
 

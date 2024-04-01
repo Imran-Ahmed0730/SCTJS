@@ -7,6 +7,8 @@ use App\Models\BranchStudent;
 use App\Models\Course;
 use App\Models\Gallery;
 use App\Models\GalleryImage;
+use App\Models\Teacher;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
 
@@ -14,6 +16,8 @@ class HomeController extends Controller
 {
     public function index(){
         $data['studentCount'] = count(BranchStudent::all());
+        $data['teachers'] = Teacher::where('status', 1)->get();
+        $data['testimonials'] = Testimonial::where('profession', 'Student')->where('status', 1)->get();
         return view('frontend.pages.homepage.index', $data);
     }
 
@@ -27,7 +31,8 @@ class HomeController extends Controller
     }
 
     public function courses(){
-        return view('frontend.pages.courses.index');
+        $data['testimonials'] = Testimonial::where('profession', 'Student')->where('status', 1)->get();
+        return view('frontend.pages.courses.index', $data);
     }
 
     public function gallery(){
@@ -52,7 +57,8 @@ class HomeController extends Controller
     }
 
     public function about(){
-        return view('frontend.pages.about-us.index');
+        $data['teachers'] = Teacher::where('status', 1)->get();
+        return view('frontend.pages.about-us.index', $data);
     }
 
     public function privacyPolicy(){
