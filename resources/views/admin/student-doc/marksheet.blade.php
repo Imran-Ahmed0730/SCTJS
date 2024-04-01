@@ -27,14 +27,15 @@
        <div >
            <table height="150px" width="600px" align="center" style="margin-top: 60px">
                <tr height="150px" valign="top">
-                   <td width="130px" align="left">
-                       <strong style="">Serial Number:</strong>
+                   <td width="100px" align="left">
+                       <strong style="font-size: 14px">Serial Number:</strong>
                    </td>
                    <td width="360px">
                        <div align="center">
-                           <img src="data:image/png;base64,{{base64_encode(file_get_contents(base_path('public/admin-assets/images/transparent-logo.png')))}} " height="150px" width="150px" alt="">
+                           @php $logo = getSettings('site_logo') @endphp
+                           <img src="data:image/png;base64,{{base64_encode(file_get_contents($logo))}} " height="120px" width="120px" alt="">
 {{--                           <img src="{{asset('/')}}admin-assets/images/transparent-logo.png" height="150px" width="150px" alt="">--}}
-                           <h3 style="margin:0 ">Expert Youth ICT Development</h3>
+                           <h3 style="margin:0 ">{{getSettings('site_name')}}</h3>
                            <p style="margin: 0; color: blue; font-size: 12px">Approved by Government of People's Republic of Bangladesh </p>
                        </div>
                    </td>
@@ -48,7 +49,7 @@
                    </td>
                </tr>
            </table>
-           <table style="position: relative;" cellspacing="10" cellpadding="2" align="center" width="600px" height="160px">
+           <table border="1" style="position: relative;" cellspacing="10" cellpadding="2" align="center" width="600px" height="160px">
                <tr style="height:20px;">
                    <td><strong>Student Name </strong></td><td width="10px">:</td>
                    <td colspan="3">{{$item->student->student_name}}</td>
@@ -131,15 +132,15 @@
                </tr>
 
                <tr style="text-align: center; font-size: 14px;  height: 250px">
-                   <td style="padding-top: 30px">
-                       <img src="data:image/png;base64,{{base64_encode(file_get_contents(base_path('public/admin-assets/images/Chairman-Sign.png')))}} " height="100px" width="200px" alt="">
+                   <td style="padding-top: 130px">
+{{--                       <img src="data:image/png;base64,{{base64_encode(file_get_contents(base_path('public/admin-assets/images/Chairman-Sign.png')))}} " height="100px" width="200px" alt="">--}}
 
 {{--                       <img src="{{asset('admin-assets')}}/images/Chairman-Sign.png" height="100px" width="200px" alt="">--}}
                        ______________________
                        <strong>Chairman/Director</strong>
                    </td>
-                   <td style="padding-top: 30px">
-                       <img src="data:image/png;base64,{{base64_encode(file_get_contents(base_path('public/admin-assets/images/ExamController.png')))}} " height="100px" width="200px" alt="">
+                   <td style="padding-top: 130px">
+{{--                       <img src="data:image/png;base64,{{base64_encode(file_get_contents(base_path('public/admin-assets/images/ExamController.png')))}} " height="100px" width="200px" alt="">--}}
 
 {{--                       <img src="{{asset('admin-assets')}}/images/ExamController.png" height="100px" width="200px" alt="">--}}
                        ______________________

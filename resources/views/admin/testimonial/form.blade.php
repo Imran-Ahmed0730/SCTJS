@@ -76,7 +76,7 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-12 form-group">
-                                <button class="form-control btn btn-primary" type="submit">@isset($item) Update @else Add @endisset Images</button>
+                                <button class="form-control btn btn-primary" type="submit">@isset($item) Update @else Add @endisset Testimonial</button>
                             </div>
                         </div>
                     </form>

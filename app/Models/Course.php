@@ -57,7 +57,7 @@ class Course extends Model
     private static function saveImageUrl($request){
 
         $image = $request->file('image');
-        $imageName = $request->course_name. '.' . $image->extension();
+        $imageName = rand().uniqid(). '.' . $image->extension();
         $directory = 'uploads/courses/';
         $imageUrl = $directory.$imageName;
         $image->move($directory, $imageName);

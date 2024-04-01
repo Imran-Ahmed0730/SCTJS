@@ -52,7 +52,7 @@
                             </div>
                             <div class="text-center p-4 pb-0">
                                 <div class="mb-3">
-                                    <h5 class="mb-4">{{$course->course_name}}</h5>
+                                    <h5 class="mb-4" style="height: 60px">{{$course->course_name}}</h5>
                                     <small class="fa fa-star text-primary"></small>
                                     <small class="fa fa-star text-primary"></small>
                                     <small class="fa fa-star text-primary"></small>

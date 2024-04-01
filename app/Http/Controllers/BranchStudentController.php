@@ -259,9 +259,9 @@ class BranchStudentController extends Controller
                 imagettftext($image, 42, 0, $centerX, 1225, $color, storage_path('app/public/ROBOTO-BOLD.TTF'), $row['course_name']);
 
 
-                imagettftext($image, 35, 0, 1000, 1405, $color, $font, $row['student_name']);
-                imagettftext($image, 35, 0, 1000, 1500, $color, $font, $row['father_name']);
-                imagettftext($image, 35, 0, 1000, 1595, $color, $font, $row['mother_name']);
+                imagettftext($image, 35, 0, 1000, 1525, $color, $font, $row['student_name']);
+                imagettftext($image, 35, 0, 1000, 1625, $color, $font, $row['father_name']);
+                imagettftext($image, 35, 0, 1000, 1722, $color, $font, $row['mother_name']);
                 if ($row['student_gender'] == 1) {
                     $gender = "Male";
                 } else if ($row['student_gender'] == 2) {
@@ -269,13 +269,13 @@ class BranchStudentController extends Controller
                 } else {
                     $gender = "";
                 }
-                imagettftext($image, 35, 0, 1000, 1680, $color, $font, $gender);
-                imagettftext($image, 35, 0, 1000, 1775, $color, $font, $row['student_dob']);
-                imagettftext($image, 35, 0, 1000, 1870, $color, $font, $branch['branch_name'] . ' (' . $branch['branch_code'] . ')');
-                imagettftext($image, 35, 0, 1000, 1960, $color, $font, $branchStudent['student_registration']);
-                imagettftext($image, 35, 0, 1000, 2130, $color, $font, $branchStudent['student_roll']);
+                imagettftext($image, 35, 0, 1000, 1820, $color, $font, $gender);
+                imagettftext($image, 35, 0, 1000, 1905, $color, $font, $row['student_dob']);
+                imagettftext($image, 35, 0, 1000, 2005, $color, $font, $branch['branch_name'] . ' (' . $branch['branch_code'] . ')');
+                imagettftext($image, 35, 0, 1000, 2098, $color, $font, $branchStudent['student_registration']);
+                imagettftext($image, 35, 0, 1000, 2280, $color, $font, $branchStudent['student_roll']);
                 //imagettftext($image,30,0,1550,2125,$color,$font,$row['session_name']);
-                imagettftext($image, 30, 0, 1550, 2125, $color, $font, $session_start_month . ' ' . $session['session_start_year'] . ' - ' . $session_end_month . ' ' . $session['session_end_year']);
+                imagettftext($image, 30, 0, 1550, 2280, $color, $font, $session_start_month . ' ' . $session['session_start_year'] . ' - ' . $session_end_month . ' ' . $session['session_end_year']);
 
                 if($row['student_image'] == null){
                     $row['student_image'] = storage_path('app/public/default.png');
@@ -294,7 +294,7 @@ class BranchStudentController extends Controller
                 $seal_image = imagecreatefrompng(storage_path('app/public/Seal.png'));
 
                 list($width,$height) = getimagesize(storage_path('app/public/Seal.png'));
-                imagecopy($image, $seal_image, 1580, 1500, 0, 0, $width, $height);
+//                imagecopy($image, $seal_image, 1580, 1500, 0, 0, $width, $height);
 
 
                 //head of the institute signature
@@ -308,7 +308,7 @@ class BranchStudentController extends Controller
 
                 //head of the institute signature
                 //imagecopymerge($image, $sign_image, 1200, 2500, 0, 0, $width, $height, 100);
-                imagecopyresized($image, $sign_image, 1200, 2440, 0, 0, $width * 2, $height * 2, $width, $height);
+//                imagecopyresized($image, $sign_image, 1200, 2440, 0, 0, $width * 2, $height * 2, $width, $height);
 
                 $file = 'Reg-Card'.$row['id'];
                 $file_path = "uploads/registration/".$file.".png";;
@@ -330,7 +330,7 @@ class BranchStudentController extends Controller
 //        return view('admin.student-doc.id-card', $data);
             $pdf = PDF::loadView('admin.student-doc.id-card', $data);
 
-            return $pdf->stream('ID Card-'.$this->branchStudent->student_roll.'.pdf');
+            return $pdf->download('ID Card-'.$this->branchStudent->student_roll.'.pdf');
 
 //        return view('admin.student-doc.admit-card', $data);
     }
@@ -359,7 +359,7 @@ class BranchStudentController extends Controller
 //            return view('admin.student-doc.marksheet', $data);
             $pdf = PDF::loadView('admin.student-doc.marksheet', $data);
 
-            return $pdf->download('Result'.$this->branchStudent->student_roll.'.pdf');
+            return $pdf->stream('Result'.$this->branchStudent->student_roll.'.pdf');
         }
         else{
             return back();

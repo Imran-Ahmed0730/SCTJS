@@ -4,11 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Login to Dashboard</title>
-    <meta name="description" content="Ela Admin - HTML5 Admin Template">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="{{asset('admin-assets')}}/images/{{getSettings('site_icon')}}">
-    <link rel="shortcut icon" href="{{asset('admin-assets')}}/images/{{getSettings('site_icon')}}">
+    <link rel="apple-touch-icon" href="{{asset(getSettings('site_icon'))}}">
+    <link rel="shortcut icon" href="{{asset(getSettings('site_icon'))}}">
 
     @include('admin.include.style')
 
@@ -23,7 +21,7 @@
             <div class="login-content">
                 <div class="login-logo">
                     <a href="index.html">
-                        <img class="align-content" src="{{asset('admin-assets')}}/images/login-logo.png" alt="" height="250" width="250px">
+                        <img class="align-content" src="{{asset(getSettings('site_logo'))}}" alt="" height="250" width="250px">
                     </a>
                 </div>
                 <div class="login-form">
@@ -52,7 +50,7 @@
 {{--                            </label>--}}
 
                         </div>
-                        <button type="submit" class="btn btn-warning btn-flat m-b-30 m-t-30">Sign in</button>
+                        <button type="submit" class="btn btn-danger btn-flat m-b-30 m-t-30">Sign in</button>
                     </form>
                 </div>
             </div>

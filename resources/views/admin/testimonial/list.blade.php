@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('title')
-    Gallery Images
+    Testimonials
 @endsection
 @section('content')
     <div class="row mt-1">

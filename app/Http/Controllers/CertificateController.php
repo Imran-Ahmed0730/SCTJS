@@ -44,7 +44,7 @@ class CertificateController extends Controller
         $font = storage_path('app/public/timesbi.ttf');
         //$path = asset('/').'admin-assets/images/cert-new.jpg';
         //$path = Storage::url('admin-assets/images/cert-new.jpg');
-        $path = storage_path('app/public/cert-new.jpg');
+        $path = storage_path('app/public/cert.jpg');
         //$image=imagecreatefromjpeg("public/cert-new.jpg");
         //$image_path = \File::allFiles(public_path('admin-assets/images/cert-new.jpg'));
         //$image_path = URL::to('/').'/admin-assets/images/cert-new.jpg';
@@ -53,8 +53,8 @@ class CertificateController extends Controller
         $width = imagesx($image);
         $height = imagesy($image);
 
-//        $image = imagecreatefromjpeg(storage_path('app/public/cert-new.jpg'));
-        $image = imagecreatetruecolor($width,$height);
+        $image = imagecreatefromjpeg(storage_path('app/public/cert.jpg'));
+//        $image = imagecreatetruecolor($width,$height);
 
         imagealphablending($image, true);
         imagesavealpha($image, true);
@@ -119,21 +119,21 @@ class CertificateController extends Controller
         $color=imagecolorallocate($image,19,21,22);
         $color = null;
 
-        imagettftext($image,23,0,1610,452,$color,$font,$row['student_roll']);
-        imagettftext($image,23,0,1595,523,$color,$font,$row['student_registration']);
-        imagettftext($image,23,0,1610,605,$color,$font,date("d/m/Y"));
+        imagettftext($image,23,0,1510,605,$color,$font,$row['student_roll']);
+        imagettftext($image,23,0,1495,673,$color,$font,$row['student_registration']);
+//        imagettftext($image,23,0,1610,805,$color,$font,date("d/m/Y"));
 
 
-        imagettftext($image,25,0,820,670,$color,$font,ucwords(strtolower($student['student_name'])));
-        imagettftext($image,25,0,740,755,$color,$font,ucwords(strtolower($student['father_name'])));
-        imagettftext($image,25,0,1420,755,$color,$font,ucwords(strtolower($student['mother_name'])));
-        imagettftext($image, 25, 0, 940, 840, $color, $font, ucwords(strtolower($course['crt_course_name'])));
-        imagettftext($image,25, 0, 780, 925,$color,$font,ucwords(strtolower($branch['branch_name'])));
-        imagettftext($image,25,0,1720,930,$color,$font,$branch['branch_code']);
+        imagettftext($image,25,0,820,822,$color,$font,ucwords(strtolower($student['student_name'])));
+        imagettftext($image,25,0,740,900,$color,$font,ucwords(strtolower($student['father_name'])));
+        imagettftext($image,25,0,1420,900,$color,$font,ucwords(strtolower($student['mother_name'])));
+        imagettftext($image, 25, 0, 930, 967, $color, $font, ucwords(strtolower($course['crt_course_name'])));
+        imagettftext($image,25, 0, 780, 1035,$color,$font,ucwords(strtolower($branch['branch_name'])));
+        imagettftext($image,25,0,1710,1035,$color,$font,$branch['branch_code']);
         //imagettftext($image,30,0,1550,2125,$color,$font,$row['session_name']);
-        imagettftext($image,25,0,700,1010,$color,$font,$session_start_month.', '.$session['session_start_year']);
-        imagettftext($image,25,0,1080,1010,$color,$font,$session_end_month.', '.$session['session_end_year']);
-        imagettftext($image,25,0,1660,1015,$color,$font,$grade);
+        imagettftext($image,25,0,1467,735,$color,$font,$session_start_month.', '.$session['session_start_year']. ' to ');
+        imagettftext($image,25,0,1700,735,$color,$font,' '.$session_end_month.', '.$session['session_end_year']);
+        imagettftext($image,25,0,1660,1115,$color,$font,$grade);
 
 
         //student photo
@@ -158,9 +158,8 @@ class CertificateController extends Controller
         $sign_image = imagecreatefrompng(storage_path('app/public/Chairman-Sign.png'));
 
         list($width,$height) = getimagesize(storage_path('app/public/Chairman-Sign.png'));
-        imagecopy($image, $sign_image, 1560, 1165, 0, 0, $width, $height);
-        //imagecopymerge($image, $sign_image, 1200, 2500, 0, 0, $width, $height, 100);
-        //imagecopyresized($image, $sign_image, 1200, 2440, 0, 0, $width*2, $height*2, $width, $height);
+//        imagecopy($image, $sign_image, 1560, 1165, 0, 0, $width, $height);
+
 
         //MD signature
         //$sign_image = imagecreatefrompng("MD-Sign.png");
@@ -168,7 +167,7 @@ class CertificateController extends Controller
 
         list($width,$height) = getimagesize(storage_path('app/public/MD-Sign.png'));
         //imagecopy($image, $sign_image, 1150, 1230, 0, 0, $width, $height);
-        imagecopyresized($image, $sign_image, 1090, 1185, 0, 0, $width*2/3, $height*2/3, $width, $height);
+//        imagecopyresized($image, $sign_image, 1090, 1185, 0, 0, $width*2/3, $height*2/3, $width, $height);
 
 
         $file=time().'_'.$row['student_id'];

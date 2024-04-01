@@ -8,19 +8,19 @@
     <title>{{$item->student->student_name}} Admit Card</title>
 </head>
 <body>
-    <table width="700px" align="center">
+    <table border="0" width="700px" align="center">
         <tr height="100px">
             <td width="150px" align="left">
-                <img src="data:image/jpg;base64,{{base64_encode(file_get_contents('admin-assets/images/logo.jpg'))}} "   height="150px" width="150px">
+                <img src="data:image/jpg;base64,{{base64_encode(file_get_contents('frontend-assets/img/logo/site_logo.png'))}} "   height="150px" width="150px">
 
 {{--                <img src="{{asset('/')}}admin-assets/images/logo.jpg" height="150px" width="150px" alt="">--}}
             </td>
             <td width="400px">
                 <div align="center">
-                    <img src="data:image/jpg;base64,{{base64_encode(file_get_contents('admin-assets/images/result-header.jpg'))}} "   width="400px" height="50px">
+{{--                    <img src="data:image/jpg;base64,{{base64_encode(file_get_contents('admin-assets/images/result-header.jpg'))}} "   width="400px" height="50px">--}}
 {{--                    <img src="{{asset('/')}}/admin-assets/images/result-header.jpg" width="400px" height="50px" alt="">--}}
-                    <h3 style="margin:0 ">Expert Youth ICT Development</h3>
-                    <p style="margin: 0"><a href="https://www.bdyouthict.com" style="text-decoration: none; color: black">www.bdyouthict.com</a></p>
+                    <h2 style="margin:0 ">{{getSettings('site_name')}}</h2>
+                    <p style="margin: 0"><a href="{{getSettings('site_url')}}" style="text-decoration: none; color: black">{{getSettings('site_url')}}</a></p>
                 </div>
             </td>
             <td width="150px" align="right">

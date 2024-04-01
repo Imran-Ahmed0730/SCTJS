@@ -6,50 +6,32 @@
     <!-- Carousel Start -->
     <div class="container-fluid p-0 mb-5">
         <div class="owl-carousel header-carousel position-relative">
-            <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="{{asset('frontend-assets')}}/img/carousel-1.jpg" alt="">
-                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
-                     style="background: rgba(24, 29, 56, .7);">
-                    <div class="container">
-                        <div class="row justify-content-start">
-                            <div class="col-sm-10 col-lg-8">
-                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Best Online Courses
-                                </h5>
-                                <h1 class="display-3 text-white animated slideInDown">The Best Online Learning Platform
-                                </h1>
-                                <p class="fs-5 text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed
-                                    stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea sanctus
-                                    eirmod elitr.</p>
-                                <a href="#" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read
-                                    More</a>
-                                <a href="{{route('branch.apply')}}" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Apply Now</a>
+            @foreach($sliders as $slider)
+                <div class="owl-carousel-item position-relative">
+                    <img class="img-fluid" src="{{asset($slider->image)}}" alt="">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                         style="background: rgba(24, 29, 56, .7);">
+                        <div class="container">
+                            <div class="row justify-content-start">
+                                <div class="col-sm-10 col-lg-8">
+                                    <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Best Online Courses
+                                    </h5>
+                                    <h1 class="display-3 text-white animated slideInDown">{{$slider->title}}
+                                    </h1>
+                                    <p class="fs-5 text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed
+                                        stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea sanctus
+                                        eirmod elitr.</p>
+                                    <a href="#" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read
+                                        More</a>
+                                    <a href="{{route('branch.apply')}}" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Apply Now</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="{{asset('frontend-assets')}}/img/carousel-2.jpg" alt="">
-                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
-                     style="background: rgba(24, 29, 56, .7);">
-                    <div class="container">
-                        <div class="row justify-content-start">
-                            <div class="col-sm-10 col-lg-8">
-                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Best Online Courses
-                                </h5>
-                                <h1 class="display-3 text-white animated slideInDown">Get Educated Online From Your Home
-                                </h1>
-                                <p class="fs-5 text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed
-                                    stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea sanctus
-                                    eirmod elitr.</p>
-                                <a href="#" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read
-                                    More</a>
-                                <a href="#" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Apply Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+
+
         </div>
     </div>
     <!-- Carousel End -->
@@ -156,7 +138,7 @@
                             </div>
                             <div class="text-center p-4 pb-0">
                                 <div class="mb-3">
-                                    <h5 class="mb-4">{{Str::limit($course->course_name, 15, '...')}}</h5>
+                                    <h5 class="mb-4" style="height: 60px">{{Str::limit($course->course_name, 25, '...')}}</h5>
                                     <small class="fa fa-star text-primary"></small>
                                     <small class="fa fa-star text-primary"></small>
                                     <small class="fa fa-star text-primary"></small>
@@ -281,13 +263,13 @@
                         </div>
                         <div class="mt-4">
                             <h3 class="text-light d-none">চেয়ারম্যান</h3>
-                            <h3 class="text-light">Chairman</h3>
+                            <h3 class="text-light">Chairman: Shariyat Ullah Saikat</h3>
                             <h6 class="text-light">Saikat Computer and Training Jubo Songhoton</h6>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6  wow slideInRight" data-wow-delay="100ms" data-wow-duration="2500ms">
-                    <img class="feature-two-img" src="{{asset('frontend-assets')}}/img/team-1.jpg" alt="">
+                    <img class="feature-two-img" src="{{asset('frontend-assets')}}/img/Chairman.jpeg" alt="">
                 </div>
             </div>
         </div>

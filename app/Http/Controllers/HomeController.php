@@ -7,6 +7,7 @@ use App\Models\BranchStudent;
 use App\Models\Course;
 use App\Models\Gallery;
 use App\Models\GalleryImage;
+use App\Models\Slider;
 use App\Models\Teacher;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
@@ -18,6 +19,7 @@ class HomeController extends Controller
         $data['studentCount'] = count(BranchStudent::all());
         $data['teachers'] = Teacher::where('status', 1)->get();
         $data['testimonials'] = Testimonial::where('profession', 'Student')->where('status', 1)->get();
+        $data['sliders'] = Slider::where('status', 1)->get()->take(5);
         return view('frontend.pages.homepage.index', $data);
     }
 

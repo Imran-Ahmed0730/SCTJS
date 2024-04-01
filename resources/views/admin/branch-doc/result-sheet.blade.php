@@ -21,16 +21,17 @@
 <table width="700px" align="center">
     <tr height="100px">
         <td width="150px" align="left">
-            <img src="data:image/jpg;base64,{{base64_encode(file_get_contents(base_path('public/admin-assets/images/logo.jpg')))}} "  height="150px" width="150px">
+            @php $logo = getSettings('site_logo'); @endphp
+            <img src="data:image/jpg;base64,{{base64_encode(file_get_contents($logo))}} "  height="150px" width="150px">
 {{--            <img src="{{asset('/')}}admin-assets/images/logo.jpg" height="150px" width="150px" alt="">--}}
         </td>
         <td width="400px">
             <div align="center">
-                <img src="data:image/jpg;base64,{{base64_encode(file_get_contents(base_path('public/admin-assets/images/result-header.jpg')))}} "  width="400px" height="50px" alt="">
+{{--                <img src="data:image/jpg;base64,{{base64_encode(file_get_contents(base_path('public/admin-assets/images/result-header.jpg')))}} "  width="400px" height="50px" alt="">--}}
 {{--                <img src="{{asset('/')}}/admin-assets/images/result-header.jpg" width="400px" height="50px" alt="">--}}
 {{--                <h1 style="margin:0; color: blue" class="bangla-title">দক্ষ যুব আইসিটি উন্নয়ন</h1>--}}
-                <h3 style="margin:0 ">Expert Youth ICT Development</h3>
-                <p style="margin: 0"><a href="https://www.bdyouthict.com" style="text-decoration: none; color: black">www.bdyouthict.com</a></p>
+                <h2 style="margin:0 ">{{getSettings('site_name')}}</h2>
+                <p style="margin: 0"><a href="{{getSettings('site_url')}}" style="text-decoration: none; color: black">{{getSettings('site_url')}}</a></p>
             </div>
         </td>
         <td width="150px" align="right">

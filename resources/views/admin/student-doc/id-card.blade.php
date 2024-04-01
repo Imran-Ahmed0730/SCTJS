@@ -30,7 +30,7 @@
         </tr>
         <tr>
             <td width="200px">
-                <table border="0" cellpadding="2" cellspacing="" width="250px"  align="center" style="font-size: 12px; text-align: center;">
+                <table border="1" cellpadding="2" cellspacing="" width="200px"  align="center" style="font-size: 12px; text-align: center;">
 
                     <tr>
 
@@ -54,13 +54,12 @@
                         <td >{{$item->student_registration}}</td>
                     </tr>
                     <tr height="30px">
-                        <td colspan="3" style="padding-top: 20px">
-                            <h3></h3>
-{{--                            <img src="data:image/jpg;base64,{{base64_encode(file_get_contents('admin-assets/images/result-header.jpg'))}} " style="transform: scale(0.6)"   width="200px" height="50px"><br>--}}
-                            {{--                    <img src="{{asset('/')}}/admin-assets/images/result-header.jpg" width="400px" height="50px" alt="">--}}
-{{--                            <small style="color: blue; text-align: center; margin: 0">Expert Youth ICT Developement</small>--}}
-{{--                            <br>--}}
-{{--                            <small style="margin: 0"><a href="https://www.bdyouthict.com" style="text-decoration: none; color: black">www.bdyouthict.com</a></small>--}}
+                        <td colspan="3" style="">
+                            <img src="data:image/jpg;base64,{{base64_encode(file_get_contents('frontend-assets/img/logo/site_logo.png'))}} "   width="150px" height="100px"><br>
+{{--                                                <img src="{{asset('/')}}/admin-assets/images/result-header.jpg" width="400px" height="50px" alt="">--}}
+                            <small style="color: blue; text-align: center; margin: 0">{{getSettings('site_name')}}</small>
+                            <br>
+                            <small style="margin: 0"><a href="{{getSettings('site_url')}}" style="text-decoration: none; color: black">{{getSettings('site_url')}}</a></small>
                         </td>
                     </tr>
                 </table>
