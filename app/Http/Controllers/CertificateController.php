@@ -24,30 +24,16 @@ class CertificateController extends Controller
         $data['session'] = Session::find($student->session_id);
         $data['student'] = Student::find($student->student_id);
         $data['branch'] = Branch::find($student->branch_id);
-        //return view('admin.student-doc.certificate', $data);
-//        return back();
-        return $this->print($data);
-    }
 
-    public function print($data){
-//if($branchStudent){
-//    dd($students);
         $row = $data['branchStudent'];
-
-        //$default_str_len = 62;
-        //$default_space_len = 220;
-
 
         header('content-type:image/jpeg');
         ini_set("gd.jpeg_ignore_warning", 1);
-        //$font="./timesbi.ttf";
+
         $font = storage_path('app/public/timesbi.ttf');
-        //$path = asset('/').'admin-assets/images/cert-new.jpg';
-        //$path = Storage::url('admin-assets/images/cert-new.jpg');
+
         $path = storage_path('app/public/cert.jpg');
-        //$image=imagecreatefromjpeg("public/cert-new.jpg");
-        //$image_path = \File::allFiles(public_path('admin-assets/images/cert-new.jpg'));
-        //$image_path = URL::to('/').'/admin-assets/images/cert-new.jpg';
+
         $image=imagecreatefromjpeg($path);
 
         $width = imagesx($image);
@@ -60,17 +46,9 @@ class CertificateController extends Controller
         imagesavealpha($image, true);
 
 
-        imagefill($image,0,0,0x7fff0000);
-        $black = imagecolorallocate($image,19,21,22);
+//        imagefill($image,0,0,0x7fff0000);
+//        $black = imagecolorallocate($image,19,21,22);
 
-
-        //$name=$row['student_name'];
-        //imagettftext($image,50,0,600,1025,$color,"ROBOTO-BOLD.TTF",$row['crt_course_name'].' ('.$row['course_code'].')');
-        /*	$cname_len = strlen($row['crt_course_name']);
-        if($cname_len<=$default_str_len){
-            $temp = $default_str_len - $cname_len;
-            $default_space_len += $temp * 10;
-        } */
 
         $serial = $row['student_id'];
         if(strlen($serial)==1){
@@ -92,15 +70,11 @@ class CertificateController extends Controller
         $course = $data['course'];
         $student = $data['student'];
         $branch = $data['branch'];
+        $issue_date = date('d M, Y');
 
         $session_start_month = $months[$session['session_start_month']-1];
         $session_end_month = $months[$session['session_end_month']-1];
 
-        //imagettftext($image,25,0,700,365,$color,$font,$serial);
-
-        //course title
-        //imagettftext($image,45,0,$default_space_len,1025,$color,"ROBOTO-BOLD.TTF",$row['crt_course_name']);
-        // THE IMAGE SIZE
 
         // THE TEXT SIZE
         $text_size = imagettfbbox(42, 0, $font, $course['crt_course_name']);
@@ -116,24 +90,25 @@ class CertificateController extends Controller
         //print course title at center of x axis
         //imagettftext($image, 42, 0, $centerX, 1225, $color, "./ROBOTO-BOLD.TTF", $row['crt_course_name']);
 
-        $color=imagecolorallocate($image,19,21,22);
+//        $color=imagecolorallocate($image,19,21,22);
         $color = null;
 
-        imagettftext($image,23,0,1510,605,$color,$font,$row['student_roll']);
-        imagettftext($image,23,0,1495,673,$color,$font,$row['student_registration']);
+        imagettftext($image,23,0,1510,565,$color,$font,$row['student_roll']);
+        imagettftext($image,23,0,1495,625,$color,$font,$row['student_registration']);
 //        imagettftext($image,23,0,1610,805,$color,$font,date("d/m/Y"));
 
 
-        imagettftext($image,25,0,820,822,$color,$font,ucwords(strtolower($student['student_name'])));
-        imagettftext($image,25,0,740,900,$color,$font,ucwords(strtolower($student['father_name'])));
-        imagettftext($image,25,0,1420,900,$color,$font,ucwords(strtolower($student['mother_name'])));
-        imagettftext($image, 25, 0, 930, 967, $color, $font, ucwords(strtolower($course['crt_course_name'])));
-        imagettftext($image,25, 0, 780, 1035,$color,$font,ucwords(strtolower($branch['branch_name'])));
-        imagettftext($image,25,0,1710,1035,$color,$font,$branch['branch_code']);
+        imagettftext($image,25,0,820,770,$color,$font,ucwords(strtolower($student['student_name'])));
+        imagettftext($image,25,0,740,840,$color,$font,ucwords(strtolower($student['father_name'])));
+        imagettftext($image,25,0,1420,840,$color,$font,ucwords(strtolower($student['mother_name'])));
+        imagettftext($image, 25, 0, 930, 910, $color, $font, ucwords(strtolower($course['crt_course_name'])));
+        imagettftext($image,25, 0, 780, 972,$color,$font,ucwords(strtolower($branch['branch_name'])));
+        imagettftext($image,25,0,1710,972,$color,$font,$branch['branch_code']);
         //imagettftext($image,30,0,1550,2125,$color,$font,$row['session_name']);
-        imagettftext($image,25,0,1467,735,$color,$font,$session_start_month.', '.$session['session_start_year']. ' to ');
-        imagettftext($image,25,0,1700,735,$color,$font,' '.$session_end_month.', '.$session['session_end_year']);
-        imagettftext($image,25,0,1660,1115,$color,$font,$grade);
+        imagettftext($image,25,0,1510,692,$color,$font,$issue_date);
+        imagettftext($image,25,0,740,1040,$color,$font,$session_start_month.', '.$session['session_start_year']);
+        imagettftext($image,25,0,1165,1040,$color,$font,' '.$session_end_month.', '.$session['session_end_year']);
+        imagettftext($image,25,0,1665,1040,$color,$font,$grade);
 
 
         //student photo
@@ -147,9 +122,9 @@ class CertificateController extends Controller
 
         //authorization seal
         //$seal_image=imagecreatefrompng("Seal.png");
-        $seal_image = imagecreatefrompng(storage_path('app/public/Seal.png'));
+//        $seal_image = imagecreatefrompng(storage_path('app/public/Seal.png'));
 
-        list($width,$height) = getimagesize(storage_path('app/public/Seal.png'));
+//        list($width,$height) = getimagesize(storage_path('app/public/Seal.png'));
         //imagecopy($image, $seal_image, 1580, 1200, 0, 0, $width, $height);
 
 
@@ -170,26 +145,21 @@ class CertificateController extends Controller
 //        imagecopyresized($image, $sign_image, 1090, 1185, 0, 0, $width*2/3, $height*2/3, $width, $height);
 
 
-        $file=time().'_'.$row['student_id'];
+
+        $file='Certificate'.'-'.$row['student_roll'];
         $file_path="uploads/certificate/".$file.".png";
 //        $file_path=storage_path("app/public/".$file.".png");
 //        $file_path_pdf="registration/".$file.".pdf";
-        $image = imagepng($image);
+        imagejpeg($image, $file_path);
+//        imagepng($image);
         imagedestroy($image);
 //        unlink($file_path);
 //        return $file_path;
 
-//        $contents=  file_get_contents($file_path);
-//
-//        $expires = 14 * 60*60*24;
-//
-//        header("Content-Type: image/png");
-//        header("Content-Length: " . strlen($contents));
-//        header("Cache-Control: public", true);
-//        header("Pragma: public", true);
-//        header('Expires: ' . gmdate('D, d M Y H:i:s', time() + $expires) . ' GMT', true);
-//
-//        echo $contents;
-//        exit;
+        $data['student'] = $row;
+
+        $pdf = PDF::loadView('admin.student-doc.certificate', $data)->setPaper('8.5x11', 'landscape');;
+        unlink($file_path);
+        return $pdf->stream($row['student_registration'].'.pdf');
     }
 }

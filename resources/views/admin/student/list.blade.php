@@ -155,7 +155,7 @@
                                                     <input type="hidden" name="id" id="'student_id'.{{$i}}" value="{{$item->id}}">
                                                     <button type="submit" class="btn btn-danger" title="Remove" style="margin-top: 5px"><i class="fa fa-trash"></i></button>
                                                 </form>
-                                            <a href="" onclick="test({{$item->id}})" class="btn btn-success mx-2" style="border-radius: 4px; margin-top: 5px" title="Download Certificate"><i class="fa fa-file"></i></a>
+                                            <a href="{{route('admin.student.certificate.print', $item->id)}}"  class="btn btn-success mx-2" style="border-radius: 4px; margin-top: 5px" title="Download Certificate"><i class="fa fa-file"></i></a>
                                         @endif
                                     </td>
 
