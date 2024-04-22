@@ -49,16 +49,16 @@
                    </td>
                </tr>
            </table>
-           <table border="1" style="position: relative;" cellspacing="10" cellpadding="2" align="center" width="600px" height="160px">
+           <table border="0" style="position: relative;" cellspacing="10" cellpadding="2" align="center" width="600px" height="160px">
                <tr style="height:20px;">
                    <td><strong>Student Name </strong></td><td width="10px">:</td>
                    <td colspan="3">{{$item->student->student_name}}</td>
-                   <td style="position: absolute; " rowspan="6" width="150px" align="right">
+                   <td style="position: relative; top: -4px " rowspan="4" align="right">
                        @if($item->student->student_image)
-{{--                           <img src="data:image/png;base64,{{base64_encode(file_get_contents(base_path('public/admin-assets/images/transparent-logo.png')))}} " height="150px" width="150px" alt="">--}}
+                           {{--                           <img src="data:image/png;base64,{{base64_encode(file_get_contents(base_path('public/admin-assets/images/transparent-logo.png')))}} " height="150px" width="150px" alt="">--}}
 
                            <img src="data:image/jpg;base64,{{base64_encode(file_get_contents($item->student->student_image))}} "   height="90px" width="90px">
-{{--                           <img src="{{'public/'.asset($item->student->student_image)}}" style="height: 120px; width: 120px;" alt="No Image">--}}
+                           {{--                           <img src="{{'public/'.asset($item->student->student_image)}}" style="height: 120px; width: 120px;" alt="No Image">--}}
                        @else
                            <div align="center">No Image</div>
                        @endif
@@ -101,7 +101,7 @@
            </table>
 
            <table border="1" width="600px" style="border-collapse: collapse; margin-top: 10px" align="center"  height="150px">
-               <tr>
+               <tr height="20px">
                    <th>SL No</th>
                    <th>Module Name</th>
                    <th>Total Marks</th>
@@ -116,37 +116,37 @@
                        <td>{{$result->marks}}</td>
                    </tr>
                @endforeach
-               <tr height="25px">
+               <tr height="20px">
                    <td colspan="3" align="right" style="padding-right: 20px"><strong>Percentage</strong></td>
                    <td style="text-align:center">{{$item->result_marks}}</td>
                </tr>
-               <tr height="25px" >
+               <tr height="20px" >
                    <td colspan="3" align="right" style="padding-right: 20px"><strong>Grade</strong></td>
                    <td style="text-align:center">{{$item->result_grade_id != null ? $item->resultGrade->result_grade_title:''}}</td>
                </tr>
            </table>
            <table cellspacing="10" cellpadding="3" align="center" width="600px" height="475px">
-               <tr height="25px">
+               <tr height="20px">
                    <td colspan="3"><strong style="padding-left: 10px">Date of Issue:</strong><span style="margin-left: 10px">{{date('d-m-Y')}}</span></td>
 
                </tr>
 
                <tr style="text-align: center; font-size: 14px;  height: 250px">
-                   <td style="padding-top: 130px">
-{{--                       <img src="data:image/png;base64,{{base64_encode(file_get_contents(base_path('public/admin-assets/images/Chairman-Sign.png')))}} " height="100px" width="200px" alt="">--}}
+                   <td style="padding-top: 170px">
+                       <img src="data:image/png;base64,{{base64_encode(file_get_contents(base_path('public/admin-assets/images/Chairman-Sign.png')))}} " height="50px" width="100px" alt="">
 
 {{--                       <img src="{{asset('admin-assets')}}/images/Chairman-Sign.png" height="100px" width="200px" alt="">--}}
                        ______________________
                        <strong>Chairman/Director</strong>
                    </td>
-                   <td style="padding-top: 130px">
+                   <td style="padding-top: 230px">
 {{--                       <img src="data:image/png;base64,{{base64_encode(file_get_contents(base_path('public/admin-assets/images/ExamController.png')))}} " height="100px" width="200px" alt="">--}}
 
 {{--                       <img src="{{asset('admin-assets')}}/images/ExamController.png" height="100px" width="200px" alt="">--}}
                        ______________________
                        <strong>Controller of Examination</strong>
                    </td>
-                   <td style="padding-top: 130px">
+                   <td style="padding-top: 230px">
                        ______________________
                        <strong>Regional Director</strong>
                    </td>

@@ -8,6 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-    <img src="data:image/jpg;base64,{{base64_encode(file_get_contents('uploads/certificate/Certificate-'.$student->student_roll.'.png'))}}" align="center" style="margin: -30px" width="1030px" height="780px">
+    <img src="data:image/jpg;base64,{{base64_encode(file_get_contents('uploads/certificate/Certificate-'.$student->student_roll.'.png'))}}"  style="margin: -38px" width="1040px" height="760px">
 </body>
 </html>

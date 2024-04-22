@@ -157,8 +157,8 @@ class CertificateController extends Controller
 //        return $file_path;
 
         $data['student'] = $row;
-
-        $pdf = PDF::loadView('admin.student-doc.certificate', $data)->setPaper('8.5x11', 'landscape');;
+        //return view('admin.student-doc.certificate', $data);
+        $pdf = PDF::loadView('admin.student-doc.certificate', $data)->setPaper('letter', 'landscape');;
         unlink($file_path);
         return $pdf->stream($row['student_registration'].'.pdf');
     }

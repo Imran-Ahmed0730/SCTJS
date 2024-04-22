@@ -291,9 +291,9 @@ class BranchStudentController extends Controller
                 imagecopyresized($image, $student_image, 1700, 1400, 0, 0, $width * 2, $height * 2, $width, $height);
 
 
-                $seal_image = imagecreatefrompng(storage_path('app/public/Seal.png'));
-
-                list($width,$height) = getimagesize(storage_path('app/public/Seal.png'));
+//                $seal_image = imagecreatefrompng(storage_path('app/public/Seal.png'));
+//
+//                list($width,$height) = getimagesize(storage_path('app/public/Seal.png'));
 //                imagecopy($image, $seal_image, 1580, 1500, 0, 0, $width, $height);
 
 
@@ -307,8 +307,8 @@ class BranchStudentController extends Controller
 
 
                 //head of the institute signature
-                //imagecopymerge($image, $sign_image, 1200, 2500, 0, 0, $width, $height, 100);
-//                imagecopyresized($image, $sign_image, 1200, 2440, 0, 0, $width * 2, $height * 2, $width, $height);
+//                imagecopymerge($image, $sign_image, 1200, 2500, 0, 0, $width, $height, 100);
+                imagecopyresized($image, $sign_image, 1100, 2660, 0, 0, $width , $height , $width, $height);
 
                 $file = 'Reg-Card'.$row['id'];
                 $file_path = "uploads/registration/".$file.".png";;
