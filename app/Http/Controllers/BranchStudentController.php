@@ -55,7 +55,7 @@ class BranchStudentController extends Controller
             $phone = '+88'.$this->student->student_phone;
         }
         $course = Course::find($this->branchStudent->course_id);
-        $message = 'Dear '.$this->student->student_name.', Your Admission is Successful in '.$course->course_name.'. Your Roll No: '. $this->branchStudent->student_roll.', Registration No: '.$this->branchStudent->student_registration.' - Expert Youth ICT Development.';
+        $message = 'Dear '.$this->student->student_name.', Your Admission is Successful in '.$course->course_name.'. Your Roll No: '. $this->branchStudent->student_roll.', Registration No: '.$this->branchStudent->student_registration.' - '.getSettings('site_name').'.';
         SmsUtility::sendSMS($phone, $message);
         return redirect()->route('student.list')->with('message', 'Student Has Been Added Successfully!!');
     }
@@ -288,7 +288,7 @@ class BranchStudentController extends Controller
 
 //                dd($width, $height);
                 //imagecopymerge($image, $student_image, 1700, 1400, 0, 0, $width, $height, 100);
-                imagecopyresized($image, $student_image, 1700, 1400, 0, 0, $width * 2, $height * 2, $width, $height);
+                imagecopyresized($image, $student_image, 1700, 1465, 0, 0, $width * 2, $height * 2, $width, $height);
 
 
 //                $seal_image = imagecreatefrompng(storage_path('app/public/Seal.png'));
@@ -299,16 +299,16 @@ class BranchStudentController extends Controller
 
                 //head of the institute signature
                 //$sign_image = imagecreatefrompng("Chairman-Sign.png");
-                $sign_image = imagecreatefrompng(storage_path('app/public/Chairman-Sign.png'));
+//                $sign_image = imagecreatefrompng(storage_path('app/public/Chairman-Sign.png'));
 
-                list($width,$height) = getimagesize(storage_path('app/public/Chairman-Sign.png'));
+//                list($width,$height) = getimagesize(storage_path('app/public/Chairman-Sign.png'));
                 //authorization seal
 //                imagecopy($image, $seal_image, 1580, 1570, 0, 0, $width, $height);
 
 
                 //head of the institute signature
 //                imagecopymerge($image, $sign_image, 1200, 2500, 0, 0, $width, $height, 100);
-                imagecopyresized($image, $sign_image, 1100, 2660, 0, 0, $width , $height , $width, $height);
+//                imagecopyresized($image, $sign_image, 1100, 2660, 0, 0, $width , $height , $width, $height);
 
                 $file = 'Reg-Card'.$row['id'];
                 $file_path = "uploads/registration/".$file.".png";;
